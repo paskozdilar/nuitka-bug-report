@@ -1,0 +1,9 @@
+services:  
+  with-python:
+    build:
+      context: .
+      dockerfile: Dockerfile.python
+  with-nuitka:
+    build:
+      context: .
+      dockerfile: Dockerfile.nuitka

@@ -1,0 +1,15 @@
+syntax = "proto3";
+
+package proto;
+
+service TestService {
+  rpc ServerStream (Request) returns (stream Response);
+}
+
+message Request {
+  string data = 1;
+}
+
+message Response {
+  string data = 1;
+}
