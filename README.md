@@ -11,6 +11,5 @@ in Nuitka-compiled code, we get an async-related error.
 Easiest way to reproduce it via docker compose:
 
 ```bash
-docker-compose up --build
+docker compose up --build
 ```
-
