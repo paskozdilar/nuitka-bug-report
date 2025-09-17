@@ -7,26 +7,21 @@ from proto import test_pb2
 
 
 async def main():
-    async def test_task():
-        while True:
-            try:
-                async for _ in Listener().listen():
-                    pass
+    while True:
+        try:
+            async for _ in listen():
+                pass
 
-            except Exception as exc:
-                print("Exception:", exc, flush=True)
-                await asyncio.sleep(1)
-
-    async with asyncio.TaskGroup() as tg:
-        tg.create_task(test_task())
+        except Exception as exc:
+            print("Exception:", exc, flush=True)
+            await asyncio.sleep(1)
 
 
-class Listener:
-    async def listen(self):
-        async with insecure_channel("localhost:1234") as channel:
-            stub = test_pb2_grpc.TestServiceStub(channel)
-            async for message in stub.ServerStream(test_pb2.Request(data="foo")):
-                yield message
+async def listen():
+    async with insecure_channel("localhost:1234") as channel:
+        stub = test_pb2_grpc.TestServiceStub(channel)
+        async for message in stub.ServerStream(test_pb2.Request(data="foo")):
+            yield message
 
 
 
