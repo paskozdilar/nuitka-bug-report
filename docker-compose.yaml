@@ -15,3 +15,9 @@ services:
       dockerfile: Dockerfile.nuitka-follow
       args:
         PYTHON_VERSION: ${PYTHON_VERSION-latest}
+  with-nuitka-standalone:
+    build:
+      context: .
+      dockerfile: Dockerfile.nuitka-standalone
+      args:
+        PYTHON_VERSION: ${PYTHON_VERSION-latest}

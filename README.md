@@ -19,3 +19,9 @@ To reproduce issue with `--follow-imports` using Python3.12, run:
 ```bash
 PYTHON_VERSION=3.12 docker compose up --build with-nuitka-follow
 ```
+
+To reproduce issue with `--standalone` using Python3.12, run:
+
+```bash
+PYTHON_VERSION=3.12 docker compose up --build with-nuitka-standalone
+```
