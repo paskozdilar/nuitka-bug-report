@@ -8,6 +8,6 @@ COPY . .
 
 RUN python -m pip install -r requirements.txt
 RUN python -m pip install -U "https://github.com/Nuitka/Nuitka/archive/develop.zip"
-RUN python -m nuitka ./main.py 
+RUN python -m nuitka --follow-imports ./main.py 
 
 CMD ["./main.bin"]

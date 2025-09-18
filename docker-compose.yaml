@@ -7,3 +7,11 @@ services:
     build:
       context: .
       dockerfile: Dockerfile.nuitka
+      args:
+        PYTHON_VERSION: ${PYTHON_VERSION-latest}
+  with-nuitka-follow:
+    build:
+      context: .
+      dockerfile: Dockerfile.nuitka-follow
+      args:
+        PYTHON_VERSION: ${PYTHON_VERSION-latest}

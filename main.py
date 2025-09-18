@@ -1,12 +1,15 @@
 #!/usr/bin/env python3
 
 import asyncio
+import sys
 from grpc.aio import insecure_channel
 from proto import test_pb2_grpc
 from proto import test_pb2
 
 
 async def main():
+    print(f'Python {sys.version}', flush=True)
+
     while True:
         try:
             async for _ in listen():
