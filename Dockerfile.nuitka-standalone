@@ -8,6 +8,7 @@ COPY . .
 
 RUN python -m pip install -r requirements.txt
 RUN python -m pip install -U "https://github.com/Nuitka/Nuitka/archive/develop.zip"
+RUN apt-get -y update && apt-get -y install patchelf
 RUN python -m nuitka --standalone ./main.py 
 
 CMD ["./main.dist/main.bin"]
